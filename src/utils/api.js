@@ -1,5 +1,4 @@
 const ROOT_URL = "https://mighty-oasis-08080.herokuapp.com/api";
-
 const userURL = ROOT_URL + "/user";
 const loginURL = ROOT_URL + "/users/login";
 const registerURL = ROOT_URL + "/users";

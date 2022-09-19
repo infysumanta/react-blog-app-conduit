@@ -140,7 +140,7 @@ form {
 }
 
 a:-webkit-any-link {
-  color: -webkit-link;
+  color: #5cb85c;
   cursor: pointer;
   text-decoration: none;
 }
@@ -229,6 +229,7 @@ main {
 }
 .nav-item {
   margin-left: 0px;
+  cursor: pointer;
 }
 
 .article-preview {
@@ -318,4 +319,67 @@ ul.tag-list {
   padding-left: 0 !important;
   display: inline-block;
   list-style: none !important;
+}
+
+nav {
+  display: block;
+}
+
+.pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 0.25rem;
+}
+
+.page-item {
+  display: inline;
+}
+.page-item:first-child .page-link {
+  margin-left: 0;
+  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: 0.25rem;
+}
+.page-link {
+  position: relative;
+  float: left;
+  padding: 0.5rem 0.75rem;
+  margin-left: -1px;
+  color: #5cb85c !important;
+  text-decoration: none;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.tag-pill {
+  cursor: pointer;
+}
+
+.page-active {
+  z-index: 2;
+  color: #fff !important;
+  cursor: default;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+}
+
+.hero-article {
+  background-color: #1b1b1b;
+  padding: 20px;
+  color: white !important;
+}
+
+.article-main div p {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.comment-meta {
+  padding: 20px;
+  border-radius: 5px;
+  border: 1px solid rgb(224, 221, 221);
+  background-color: #f3f2f2;
+  margin-bottom: 10px;
 }

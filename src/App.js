@@ -4,7 +4,6 @@ import Home from "./page/Home";
 import Login from "./page/Login";
 import Register from "./page/Register";
 import Article from "./page/Article";
-import Tags from "./page/Tags";
 
 function App() {
   return (
@@ -13,7 +12,6 @@ function App() {
       <Route path="/login" component={Login} exact />
       <Route path="/register" component={Register} exact />
       <Route path="/article/:slug" component={Article} exact />
-      <Route path="/tag/:slug" component={Tags} exact />
     </Switch>
   );
 }
