@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import Header from "../components/Header";
 import { validate } from "../utils/validate";
+import { loginURL } from "../utils/api";
 class Login extends Component {
   constructor(props) {
     super(props);
@@ -23,6 +24,45 @@ class Login extends Component {
     this.setState({ [name]: value, errors });
   };
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let { email, password } = this.state;
+    fetch(loginURL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          email,
+          password,
+        },
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then(({ errors }) => {
+            return Promise.reject(errors);
+          });
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((errors) =>
+        this.setState((prevState) => {
+          return {
+            ...prevState,
+            errors: {
+              ...prevState.errors,
+              email: "Email or password is incorrect!",
+            },
+          };
+        })
+      );
+  };
+
   render() {
     let { email, password } = this.state.errors;
     return (
@@ -33,7 +73,7 @@ class Login extends Component {
           <NavLink className="login-link" to="/register">
             Need an Account?
           </NavLink>
-          <form className="login-form">
+          <form className="login-form" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <input
                 type="text"

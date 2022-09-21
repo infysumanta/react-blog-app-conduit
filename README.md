@@ -40,15 +40,15 @@ For information regarding the API endpoints go through the link below. You will 
 
 #### Make Login Page Functional
 
-- [ ] Using fetch `POST` request implement login
+- [x] Using fetch `POST` request implement login
 - [ ] On login success redirect to home page
-- [ ] Handle error when the login fails
+- [x] Handle error when the login fails
 
 #### Make Signup Page Functional
 
-- [ ] Using fetch `POST` request implement signup
+- [x] Using fetch `POST` request implement signup
 - [ ] On signup success redirect to home page
-- [ ] Handle error when the signup fails
+- [x] Handle error when the signup fails
 
 #### Home Page (Private)
 
