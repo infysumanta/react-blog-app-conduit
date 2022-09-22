@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Header from "./../components/Header";
 import { articlesURL } from "../utils/api";
 import Comment from "../components/Comment";
 class Article extends Component {
@@ -40,7 +39,6 @@ class Article extends Component {
     console.log(article);
     return (
       <div>
-        <Header />
         {this.state.article && (
           <>
             <div className="hero-article">

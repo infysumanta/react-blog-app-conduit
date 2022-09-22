@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import Header from "../components/Header";
 import { validate } from "../utils/validate";
 import { registerURL } from "../utils/api";
+import { withRouter } from "react-router";
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -51,6 +51,8 @@ class Register extends Component {
       })
       .then((data) => {
         console.log(data);
+        this.setState({ email: "", password: "", username: "" });
+        this.props.history.push("/");
       })
       .catch((errors) =>
         this.setState((prevState) => {
@@ -69,7 +71,6 @@ class Register extends Component {
     let { email, username, password } = this.state.errors;
     return (
       <>
-        <Header />
         <div className="container login-container">
           <h1>Sign in</h1>
           <NavLink className="login-link" to="/login">
@@ -128,4 +129,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default withRouter(Register);
