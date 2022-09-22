@@ -9,22 +9,46 @@ class Header extends Component {
             <div className="brand-logo">conduit</div>
           </NavLink>
           <div className="navigation-menu">
-            <ul className="navigation flex">
-              <li>
-                <NavLink to="/">Home</NavLink>
-              </li>
-              <li>
-                <NavLink to="/login">Sign in</NavLink>
-              </li>
-              <li>
-                <NavLink to="/register">Sign up</NavLink>
-              </li>
-            </ul>
+            {this.props.isLoggedIn ? <AuthHeader /> : <NonAuthHeader />}
           </div>
         </div>
       </header>
     );
   }
+}
+function NonAuthHeader() {
+  return (
+    <ul className="navigation flex">
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/login">Sign in</NavLink>
+      </li>
+      <li>
+        <NavLink to="/register">Sign up</NavLink>
+      </li>
+    </ul>
+  );
+}
+
+function AuthHeader() {
+  return (
+    <ul className="navigation flex">
+      <li>
+        <NavLink to="/">Home</NavLink>
+      </li>
+      <li>
+        <NavLink to="/login">New Article</NavLink>
+      </li>
+      <li>
+        <NavLink to="/register">Settings</NavLink>
+      </li>
+      <li>
+        <NavLink to="/profile">profile</NavLink>
+      </li>
+    </ul>
+  );
 }
 
 export default Header;

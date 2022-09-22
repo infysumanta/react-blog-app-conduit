@@ -14,6 +14,7 @@ class Main extends Component {
       articlesPerPage: 10,
       activePage: 1,
       tag: "",
+      myFeed: false,
     };
   }
 
@@ -38,6 +39,10 @@ class Main extends Component {
       this.fetchArticles();
     }
   }
+
+  myFeedActive = (active) => {
+    this.setState({ myFeed: active });
+  };
 
   fetchArticles = () => {
     const limit = this.state.articlesPerPage;
@@ -79,10 +84,30 @@ class Main extends Component {
                 <li className="nav-item">
                   <span
                     href="/"
-                    onClick={() => this.emptyTag()}
-                    className={!this.state.tag ? "nav-link active" : "nav-link"}
+                    onClick={() => this.myFeedActive(false)}
+                    className={
+                      !this.state.tag
+                        ? this.state.myFeed
+                          ? "nav-link"
+                          : "nav-link active"
+                        : "nav-link"
+                    }
                   >
                     Global Feed
+                  </span>
+
+                  <span
+                    href="/"
+                    onClick={() => this.myFeedActive(true)}
+                    className={
+                      !this.state.tag
+                        ? this.state.myFeed
+                          ? "nav-link active"
+                          : "nav-link"
+                        : "nav-link"
+                    }
+                  >
+                    Your Feed
                   </span>
                   {this.state.tag ? (
                     <span href="/" className="nav-link active">

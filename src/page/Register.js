@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import Header from "../components/Header";
 import { validate } from "../utils/validate";
-
+import { registerURL } from "../utils/api";
+import { withRouter } from "react-router";
 class Register extends Component {
   constructor(props) {
     super(props);
@@ -25,17 +25,58 @@ class Register extends Component {
     validate(errors, name, value);
     this.setState({ [name]: value, errors });
   };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    let { email, username, password } = this.state;
+    console.log(username);
+    fetch(registerURL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        user: {
+          username,
+          email,
+          password,
+        },
+      }),
+    })
+      .then((res) => {
+        if (!res.ok) {
+          return res.json().then(({ errors }) => {
+            return Promise.reject(errors);
+          });
+        }
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+        this.setState({ email: "", password: "", username: "" });
+        this.props.history.push("/");
+      })
+      .catch((errors) =>
+        this.setState((prevState) => {
+          return {
+            ...prevState,
+            errors: {
+              ...prevState.errors,
+              email: "Email or password is incorrect!",
+            },
+          };
+        })
+      );
+  };
+
   render() {
     let { email, username, password } = this.state.errors;
     return (
       <>
-        <Header />
         <div className="container login-container">
           <h1>Sign in</h1>
           <NavLink className="login-link" to="/login">
             Have an Account?
           </NavLink>
-          <form className="login-form">
+          <form className="login-form" onSubmit={this.handleSubmit}>
             <div className="form-group">
               <input
                 type="text"
@@ -88,4 +129,4 @@ class Register extends Component {
   }
 }
 
-export default Register;
+export default withRouter(Register);
