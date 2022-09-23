@@ -1,17 +1,19 @@
-### Assignment: Day 2
+### Assignment: Day 3
+
+[(Discuss this block)](/forum/redirect/categories/BRaacq)
 
 # Blog App
 
 To complete this block read the instruction carefully:
 
-- [x] Create a new repo on Github
-- [x] Switch to the specific branch (eg: day-1)
-- [x] Complete the task of the day in the branch
-- [x] Once complete push all the changes to the specific branch (day-1)
-- [x] Submit the link of the Github/branch as submission link
-- [x] Once completed create a pull request to master and merge it
+- [x] Create a new repo on github
+- [ ] Switch to the specific branch
+- [ ] Do the following in that branch
+- [ ] Once complete push all the content to the specific branch
+- [ ] Submit the link of the github/branch as submission link
+- [ ] Once completed create a pull request to master and merge it
 
-## DAY 2
+## DAY 3
 
 Use the blog API you have created while learning backend. If your API is not working properly you can use the endpoint given below.
 
@@ -32,33 +34,57 @@ For information regarding the API endpoints go through the link below. You will 
 
 ### Things To Complete Today
 
-- [x] Make Login Page Functional
-- [x] Make Signup Page Functional
-- [x] Home Page (Private - only for logged in user)
-- [x] Add Private Navigation
-- [x] Implement Hard Reload
+- [x] Complete Add New Post
+- [ ] Make New Post Page Functional
+- [ ] Complete Setting Page
+- [ ] Make Setting Page Functional
+- [ ] Implement Logout
+- [ ] User Profile Page
+- [ ] Other Users Profile
 
-#### Make Login Page Functional
+#### Complete Add New Post
 
-- [x] Using fetch `POST` request implement login
-- [x] On login success redirect to home page
-- [x] Handle error when the login fails
+- [ ] Add the following input fields `Title`, `Description` and `Markdown article body`
+- [ ] Have a Add Article button
+- [ ] Add tag input
+- [ ] You can have multiple inputs. When you press comma the tag will be added
+- [ ] Validate the error (none of the field should be empty)
+- [ ] Display appropriate error message
 
-#### Make Signup Page Functional
+#### Make New Post Page Functional
 
-- [x] Using fetch `POST` request implement signup
-- [x] On signup success redirect to home page
-- [x] Handle error when the signup fails
+- [ ] Make adding new article functional
+- [ ] Use post request to add the data
+- [ ] If add article is successful redirect the user to the article page
 
-#### Home Page (Private)
+#### Complete Setting Page
 
-- [x] Create a private home page
-- [x] It will contain 2 tabs `Your Feed` and `Global Feed`
-- [x] Both tab will display top 10 articles in the respective tab
+- [ ] Add input fields like URL of profile picture, username, bio, email, new password
+- [ ] Add update setting button
+- [ ] Validate email field
 
-#### Make sure to retain the logged in user after hard reload
+#### Make Setting Page Functional
 
-- [x] Make sure the logged in user persists after hard reload
-- [x] Verify the user using the `jwt` token saved in localStorage
-- [x] Show a loading indicator when user is being verified
-- [x] Only after user verification redirect to home page
+- [ ] Pre-fill the use data component loads
+- [ ] When update setting is clicked update the setting (use POST request with the updated data)
+- [ ] If the updating is successful stay on the same page and update the information
+- [ ] Test the updated value by hard refreshing the page
+
+#### Implement Logout
+
+- [ ] Implement logout button (you can add it in navigation or on the setting page)
+- [ ] Make sure to clear the localStorage when you logout
+
+#### User Profile Page
+
+- [ ] Create a user info page
+- [ ] It will have a hero section with user information and a way to update the setting
+- [ ] List "My Articles" and "Favorited Articles" in two different tabs
+- [ ] On both tabs list the first 10 articles
+- [ ] Display the `Edit Setting` button in hero section
+
+#### Other Users Profile
+
+- [ ] When you click on the user avatar on the post it will take user to individual user profile
+- [ ] It should go to `/profile/username`
+- [ ] Display the follow button in hero section
