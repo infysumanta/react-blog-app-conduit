@@ -39,8 +39,8 @@ For information regarding the API endpoints go through the link below. You will 
 - [x] Complete Setting Page
 - [x] Make Setting Page Functional
 - [x] Implement Logout
-- [ ] User Profile Page
-- [ ] Other Users Profile
+- [x] User Profile Page
+- [x] Other Users Profile
 
 #### Complete Add New Post
 
@@ -77,14 +77,14 @@ For information regarding the API endpoints go through the link below. You will 
 
 #### User Profile Page
 
-- [ ] Create a user info page
-- [ ] It will have a hero section with user information and a way to update the setting
-- [ ] List "My Articles" and "Favorited Articles" in two different tabs
-- [ ] On both tabs list the first 10 articles
-- [ ] Display the `Edit Setting` button in hero section
+- [x] Create a user info page
+- [x] It will have a hero section with user information and a way to update the setting
+- [x] List "My Articles" and "Favorited Articles" in two different tabs
+- [x] On both tabs list the first 10 articles
+- [x] Display the `Edit Setting` button in hero section
 
 #### Other Users Profile
 
-- [ ] When you click on the user avatar on the post it will take user to individual user profile
-- [ ] It should go to `/profile/username`
-- [ ] Display the follow button in hero section
+- [x] When you click on the user avatar on the post it will take user to individual user profile
+- [x] It should go to `/profile/username`
+- [x] Display the follow button in hero section
