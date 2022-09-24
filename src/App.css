@@ -75,6 +75,12 @@ ul {
   text-align: center;
 }
 
+.form-container {
+  width: 700px;
+  margin: auto;
+  text-align: center;
+}
+
 .login-container h1 {
   font-size: 2.5rem;
   font-weight: 100;
@@ -371,6 +377,12 @@ nav {
   color: white !important;
 }
 
+.profile-hero {
+  background-color: #aaaaaa;
+  text-align: center;
+  padding: 20px;
+}
+
 .article-main div p {
   font-size: 20px;
   line-height: 30px;
@@ -382,4 +394,58 @@ nav {
   border: 1px solid rgb(224, 221, 221);
   background-color: #f3f2f2;
   margin-bottom: 10px;
+}
+.logout-button {
+  text-align: left;
+}
+.logout {
+  background: rgb(236, 146, 146);
+  color: brown;
+  border: 1px solid rgb(236, 146, 146);
+  padding: 0.8rem 1.6rem;
+  border-radius: 0.3rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout:hover {
+  color: white;
+  background: brown;
+}
+
+.edit-button {
+  color: white;
+  border: 1px solid rgb(3, 3, 3);
+  border-radius: 5px;
+  padding: 5px;
+  background-color: #55595c;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.edit-button:hover {
+  background-color: #1b1b1b;
+}
+
+.profile-img {
+  border: 5px solid rgb(255, 255, 255);
+  border-radius: 50%;
+}
+
+.btn {
+  cursor: pointer;
+}
+
+.profile-button > button {
+  background-color: darkslategrey;
+  padding: 10px;
+  margin-top: 10px;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.profile-button > button:hover {
+  background-color: rgb(96, 102, 102);
+  color: rgb(179, 180, 180);
 }

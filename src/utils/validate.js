@@ -37,6 +37,26 @@ export function validate(errors, name, value) {
         ? ""
         : "Email is invalid";
       break;
+    case "title":
+      if (value === "") {
+        errors.title = "Title can't be empty!";
+      }
+      break;
+    case "description":
+      if (value === "") {
+        errors.description = "Description can't be empty!";
+      }
+      break;
+    case "body":
+      if (value === "") {
+        errors.body = "Body can't be empty!";
+      }
+      break;
+    case "tagList":
+      if (value === "") {
+        errors.tagList = "Tags can't be empty!";
+      }
+      break;
     default:
       break;
   }
