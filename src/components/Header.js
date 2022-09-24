@@ -9,7 +9,11 @@ class Header extends Component {
             <div className="brand-logo">conduit</div>
           </NavLink>
           <div className="navigation-menu">
-            {this.props.isLoggedIn ? <AuthHeader /> : <NonAuthHeader />}
+            {this.props.isLoggedIn ? (
+              <AuthHeader user={this.props.user} />
+            ) : (
+              <NonAuthHeader />
+            )}
           </div>
         </div>
       </header>
@@ -32,20 +36,20 @@ function NonAuthHeader() {
   );
 }
 
-function AuthHeader() {
+function AuthHeader(props) {
   return (
     <ul className="navigation flex">
       <li>
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/login">New Article</NavLink>
+        <NavLink to="/new-post">New Article</NavLink>
       </li>
       <li>
-        <NavLink to="/register">Settings</NavLink>
+        <NavLink to="/settings">Settings</NavLink>
       </li>
       <li>
-        <NavLink to="/profile">profile</NavLink>
+        <NavLink to={`/profile/${props.user.username}`}>profile</NavLink>
       </li>
     </ul>
   );

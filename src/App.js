@@ -10,6 +10,9 @@ import { userURL } from "./utils/api";
 import "./App.css";
 import Loader from "./components/Loader";
 import Header from "./components/Header";
+import NewPost from "./page/NewPost";
+import Profile from "./page/Profile";
+import Settings from "./page/Settings";
 class App extends Component {
   constructor(props) {
     super(props);
@@ -63,40 +66,45 @@ class App extends Component {
           </Route>
 
           <Route path="/article/:slug" component={Article} exact />
+
+          {this.state.isLoggedIn ? (
+            <AuthRoute user={this.state.user} />
+          ) : (
+            <NonAuthRoute updateUser={this.updateUser} />
+          )}
           <Route path="*" exact>
             <NoMatch />
           </Route>
-          {this.state.isLoggedIn ? <AuthRoute /> : <NonAuthRoute />}
         </Switch>
       </>
     );
   }
 }
 
-function NonAuthRoute() {
+function NonAuthRoute(props) {
   return (
     <>
       <Route path="/login" exact>
-        <Login updateUser={this.updateUser} />
+        <Login updateUser={props.updateUser} />
       </Route>
       <Route path="/register" exact>
-        <Register updateUser={this.updateUser} />
+        <Register updateUser={props.updateUser} />
       </Route>
     </>
   );
 }
 
-function AuthRoute() {
+function AuthRoute(props) {
   return (
     <>
       <Route path="/new-post" exact>
-        {/* <NewPost /> */}
+        <NewPost user={props.user} />
       </Route>
-      <Route path="/profile" exact>
-        {/* <Profile /> */}
+      <Route path="/profile/:username" exact>
+        <Profile user={props.user} />
       </Route>
       <Route path="/settings" exact>
-        {/* <Settings /> */}
+        <Settings user={props.user} />
       </Route>
     </>
   );
