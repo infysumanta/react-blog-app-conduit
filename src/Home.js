@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import HomeMain from "./components/landingPage/home/HomeMain";
 import { Route } from "react-router-dom";
 import SingleArticle from "./page/SingleArticle";
@@ -7,11 +7,8 @@ import Settings from "./components/landingPage/home/Settings";
 import Profile from "./components/landingPage/home/Profile";
 
 import UpdateArticle from "./components/landingPage/home/UpdateArticle";
-import UserContext from "./utils/UserContext";
 
 function Home(props) {
-  let { token } = useContext(UserContext);
-
   return (
     <>
       <Route path="/" exact>
