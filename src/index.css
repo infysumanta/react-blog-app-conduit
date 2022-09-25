@@ -1,66 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Titillium+Web&display=swap");
-
 body {
   margin: 0;
-  font-family: "Titillium Web", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-.ripple-loader {
-  position: relative;
-  width: 64px;
-  height: 64px;
-}
-
-.ripple-loader div {
-  position: absolute;
-  border: 4px solid #5cb85c;
-  border-radius: 50%;
-  -webkit-animation: ripple-loader 1s ease-out infinite;
-  animation: ripple-loader 1s ease-out infinite;
-}
-
-.ripple-loader div:nth-child(2) {
-  -webkit-animation-delay: -0.5s;
-  animation-delay: -0.5s;
-}
-
-@-webkit-keyframes ripple-loader {
-  0% {
-    top: 32px;
-    left: 32px;
-    width: 0;
-    height: 0;
-    opacity: 1;
-  }
-  100% {
-    top: 0;
-    left: 0;
-    width: 64px;
-    height: 64px;
-    opacity: 0;
-  }
-}
-
-@keyframes ripple-loader {
-  0% {
-    top: 32px;
-    left: 32px;
-    width: 0;
-    height: 0;
-    opacity: 1;
-  }
-  100% {
-    top: 0;
-    left: 0;
-    width: 64px;
-    height: 64px;
-    opacity: 0;
-  }
 }

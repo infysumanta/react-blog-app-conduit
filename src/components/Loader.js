@@ -1,10 +1,19 @@
-import React from "react";
+import React, { Component } from 'react';
 
-export default function Loader() {
-  return (
-    <center className="ripple-loader" style={{ height: "100vh" }}>
-      <div></div>
-      <div></div>
-    </center>
-  );
+class Loader extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+  render() {
+    return (
+      <div className='bouncing-loader'>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
+  }
 }
+
+export default Loader;

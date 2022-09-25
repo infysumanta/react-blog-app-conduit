@@ -1,0 +1,40 @@
+//header{
+.header {
+  padding: 1rem;
+  background-color: white;
+  strong {
+    font-size: 2rem;
+    font-weight: bold;
+    color: $pri;
+  }
+  .header-nav {
+    svg {
+      margin-right: 0.4rem;
+    }
+    & > * {
+      margin-right: 1rem;
+    }
+    a{
+      color: $sec
+    }
+    a:hover {
+      color: black;
+    }
+    .active {
+       color: black;
+    }
+  }
+  span{
+    cursor: pointer;
+  }
+}
+footer {
+  padding: 1rem;
+  background-color: $gray;
+  margin-top: 1rem;
+  small {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: $text-gray;
+  }
+}
