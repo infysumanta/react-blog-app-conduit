@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, NavLink, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { Login_URL } from "../utils/constants";
 
 class Login extends Component {
