@@ -2,7 +2,6 @@
   "name": "react-blog-app-conduit",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://infysumanta.github.io/react-blog-app-conduit",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
