@@ -1,12 +1,12 @@
 import React from "react";
-import HomeMain from "./components/landingPage/home/HomeMain";
+import HomeMain from "../components/HomeMain";
 import { Route } from "react-router-dom";
-import SingleArticle from "./page/SingleArticle";
-import NewArticle from "./components/landingPage/home/NewArticle";
-import Settings from "./components/landingPage/home/Settings";
-import Profile from "./components/landingPage/home/Profile";
+import SingleArticle from "./SingleArticle";
+import NewArticle from "./NewArticle";
+import Settings from "./Settings";
+import Profile from "./Profile";
 
-import UpdateArticle from "./components/landingPage/home/UpdateArticle";
+import UpdateArticle from "./UpdateArticle";
 
 function Home(props) {
   return (

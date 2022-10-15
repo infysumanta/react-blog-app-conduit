@@ -2,8 +2,8 @@
 import React, { Component } from "react";
 import moment from "moment";
 import { NavLink } from "react-router-dom";
-import { Articles_URL } from "../../../../utils/constants";
-import UserContext from "../../../../utils/UserContext";
+import { Articles_URL } from "../utils/constants";
+import UserContext from "../context/UserContext";
 
 class HomeArticle extends Component {
   constructor(props) {
@@ -46,7 +46,7 @@ class HomeArticle extends Component {
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(_prevProps, prevState) {
     if (prevState.isLiked !== this.state.isLiked) {
       this.setState((prevState) => {
         if (this.props.article.fav)

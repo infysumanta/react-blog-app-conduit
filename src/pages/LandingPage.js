@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import Login from "./page/Login";
-import SignUp from "./page/SignUp";
-import { User_URL } from "./utils/constants";
-import { UserProvider } from "./utils/UserContext";
-import Footer from "./components/landingPage/Footer";
-import Header from "./components/landingPage/Header";
+import Login from "./Login";
+import SignUp from "./SignUp";
+import { User_URL } from "../utils/constants";
+import { UserProvider } from "../context/UserContext";
+import Footer from "./../components/Footer";
+import Header from "./../components/Header";
 import Home from "./Home";
 
 class LandingPage extends Component {
@@ -64,7 +64,6 @@ class LandingPage extends Component {
           logoutUser={this.logoutUser}
         />
         <main>
-          {" "}
           <Route path="/">
             <Home />
           </Route>

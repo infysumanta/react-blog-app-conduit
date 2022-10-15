@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
-
-import Loader from '../../Loader';
-import { Articles_URL } from '../../../utils/constants';
-import UserContext from '../../../utils/UserContext';
+import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
+import Loader from "./../components/Loader";
+import { Articles_URL } from "../utils/constants";
+import UserContext from "./../context/UserContext";
 
 class updateArticle extends Component {
   constructor(props) {
@@ -19,10 +18,10 @@ class updateArticle extends Component {
     let slug = this.props.match.params.slug;
     const { token } = this.context;
     console.log(slug);
-    fetch(Articles_URL + '/' + slug, {
-      method: 'GET',
+    fetch(Articles_URL + "/" + slug, {
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: token,
       },
     })
@@ -43,10 +42,10 @@ class updateArticle extends Component {
 
     if (data.title || data.body) {
       const { token } = this.context;
-      fetch(Articles_URL + '/' + slug, {
-        method: 'PUT',
+      fetch(Articles_URL + "/" + slug, {
+        method: "PUT",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
           Authorization: token,
         },
 
@@ -54,7 +53,7 @@ class updateArticle extends Component {
       })
         .then((res) => res.json())
         .then((createdPost) => {
-          this.props.history.push('/');
+          this.props.history.push("/");
         });
     }
   };
@@ -75,8 +74,8 @@ class updateArticle extends Component {
     return (
       <>
         {this.state.article ? (
-          <section className='NewArticle-sec'>
-            <h2 className='sec-heading'>Update Article</h2>
+          <section className="NewArticle-sec">
+            <h2 className="sec-heading">Update Article</h2>
 
             <form
               onSubmit={(event) => {
@@ -84,51 +83,51 @@ class updateArticle extends Component {
               }}
             >
               <fieldset>
-                <label htmlFor='title'></label>
+                <label htmlFor="title"></label>
                 <input
-                  type='text'
-                  name='title'
-                  id='articleTitle'
-                  placeholder='Article Title'
+                  type="text"
+                  name="title"
+                  id="articleTitle"
+                  placeholder="Article Title"
                   value={this.state.article.title}
                   onChange={(event) => {
-                    this.handleChange(event, 'title');
+                    this.handleChange(event, "title");
                   }}
                 />
                 <span></span>
               </fieldset>
               <fieldset>
-                <label htmlFor='description'></label>
+                <label htmlFor="description"></label>
                 <input
-                  type='text'
-                  name='description'
-                  id='articledescription'
-                  placeholder='Enter Description'
+                  type="text"
+                  name="description"
+                  id="articledescription"
+                  placeholder="Enter Description"
                   value={this.state.article.description}
                   onChange={(event) => {
-                    this.handleChange(event, 'description');
+                    this.handleChange(event, "description");
                   }}
                 />
                 <span></span>
               </fieldset>
               <fieldset>
-                <label htmlFor='body'></label>
+                <label htmlFor="body"></label>
                 <textarea
-                  name='body'
-                  id='articleBody'
-                  cols='30'
-                  rows='10'
-                  placeholder='Article Body'
+                  name="body"
+                  id="articleBody"
+                  cols="30"
+                  rows="10"
+                  placeholder="Article Body"
                   value={this.state.article.body}
                   onChange={(event) => {
-                    this.handleChange(event, 'body');
+                    this.handleChange(event, "body");
                   }}
                 ></textarea>
                 <span></span>
               </fieldset>
 
-              <fieldset className='flex center'>
-                <button type='submit' className='btn btn-pri'>
+              <fieldset className="flex center">
+                <button type="submit" className="btn btn-pri">
                   Submit
                 </button>
               </fieldset>
