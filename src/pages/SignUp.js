@@ -1,30 +1,23 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Link, withRouter } from "react-router-dom";
 import { Register_URL } from "../utils/constants";
 
-class SignUp extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: {
-        email: null,
-        username: null,
-        password: null,
-        errors: {
-          email: null,
-          username: null,
-          password: null,
-        },
-      },
-    };
-  }
+let SignUp = () => {
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
+  let [username, setUsername] = useState("");
+  let [errors, setErrors] = useState({
+    email: null,
+    username: null,
+    password: null,
+  });
 
-  handleUserRegistration = (event) => {
+  let handleUserRegistration = (event) => {
     event.preventDefault();
     let data = {
-      email: event.target.email.value,
-      username: event.target.username.value,
-      password: event.target.password.value,
+      email,
+      username,
+      password,
     };
 
     fetch(Register_URL, {
@@ -43,158 +36,75 @@ class SignUp extends Component {
         return res.json();
       })
       .then((userData) => {
-        this.setState({
-          data: {
-            email: "",
-            username: "",
-            password: "",
-            errors: {
-              email: null,
-              username: null,
-              password: null,
-            },
-          },
+        setEmail("");
+        setPassword("");
+        setUsername("");
+        setErrors({
+          email: null,
+          username: null,
+          password: null,
         });
         this.props.history.push("/users/login");
       })
       .catch((errors) => {
-        this.setState((prevState) => {
-          return {
-            ...prevState,
-            data: {
-              errors: errors,
-            },
-          };
-        });
+        setErrors(errors);
       });
   };
 
-  handleSignUpError = (target, field) => {
-    switch (field) {
-      case "email":
-        if (target.value.length < 8 || !target.value.includes("@")) {
-          this.setState({
-            data: {
-              errors: {
-                email: "Email must be 8 char long and include @ symbol",
-              },
-            },
-          });
-        } else {
-          this.setState({
-            data: {
-              errors: {
-                email: null,
-              },
-            },
-          });
-        }
-        break;
+  return (
+    <section className="login-sec">
+      <h2 className="sec-heading">Sign-Up Page</h2>
+      <div className="container ">
+        <Link to="/users/login">Have an account?</Link>
+        <form
+          onSubmit={(event) => {
+            handleUserRegistration(event);
+          }}
+        >
+          <fieldset>
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              id="loginEmail"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <div className="error">{errors.email}</div>
+          </fieldset>
 
-      case "username":
-        if (target.value.length < 5) {
-          this.setState({
-            data: {
-              errors: {
-                username: "username must be 5 char long ",
-              },
-            },
-          });
-        } else {
-          this.setState({
-            data: {
-              errors: {
-                username: null,
-              },
-            },
-          });
-        }
-        break;
+          <fieldset>
+            <input
+              type="text"
+              name="username"
+              placeholder="Username"
+              id="loginUsername"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <div className="error"> {errors.username}</div>
+          </fieldset>
 
-      case "password":
-        if (target.value.length < 8) {
-          this.setState({
-            data: {
-              errors: {
-                password: "Password must be 8 char long ",
-              },
-            },
-          });
-        } else {
-          this.setState({
-            data: {
-              errors: {
-                password: null,
-              },
-            },
-          });
-        }
-        break;
-
-      default:
-        break;
-    }
-  };
-
-  render() {
-    return (
-      <section className="login-sec">
-        <h2 className="sec-heading">Sign-Up Page</h2>
-        <div className="container ">
-          <Link to="/users/login">Have an account?</Link>
-          <form
-            onSubmit={(event) => {
-              this.handleUserRegistration(event);
-            }}
-          >
-            <fieldset>
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                id="loginEmail"
-                onChange={(event) => {
-                  this.handleSignUpError(event.target, "email");
-                }}
-              />
-              <div className="error">{this.state.data.errors.email}</div>
-            </fieldset>
-
-            <fieldset>
-              <input
-                type="text"
-                name="username"
-                placeholder="Username"
-                id="loginUsername"
-                onChange={(event) => {
-                  this.handleSignUpError(event.target, "username");
-                }}
-              />
-              <div className="error"> {this.state.data.errors.username}</div>
-            </fieldset>
-
-            <fieldset>
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                id="loginPassword"
-                onChange={(event) => {
-                  this.handleSignUpError(event.target, "password");
-                }}
-              />
-              <div className="error"> {this.state.data.errors.password}</div>
-            </fieldset>
-            <fieldset className="right">
-              <button type="submit" className="btn btn-pri">
-                Submit
-              </button>
-            </fieldset>
-          </form>
-        </div>
-      </section>
-    );
-  }
-}
+          <fieldset>
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              id="loginPassword"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className="error"> {errors.password}</div>
+          </fieldset>
+          <fieldset className="right">
+            <button type="submit" className="btn btn-pri">
+              Submit
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+  );
+};
 
 export default withRouter(SignUp);
