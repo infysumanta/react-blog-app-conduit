@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { withRouter } from "react-router";
-import { User_URL } from "../../../utils/constants";
-import UserContext from "../../../utils/UserContext";
-import Loader from "../../Loader";
+import { User_URL } from "../utils/constants";
+import UserContext from "./../context/UserContext";
+import Loader from "./../components/Loader";
 
 class Settings extends Component {
   constructor(props) {

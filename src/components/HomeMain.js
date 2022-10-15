@@ -1,11 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
-import HomeArticle from "./homeMain/HomeArticle";
+import HomeArticle from "./HomeArticle";
 
-import Loader from "../../Loader";
-import Tags from "./homeMain/Tags";
-import { Articles_URL, User_URL } from "../../../utils/constants";
-import UserContext, { UserConsumer } from "../../../utils/UserContext";
+import Loader from "./Loader";
+import Tags from "./Tags";
+import { Articles_URL, User_URL } from "../utils/constants";
+import UserContext, { UserConsumer } from "./../context/UserContext";
 
 class HomeMain extends Component {
   constructor(props) {

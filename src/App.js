@@ -1,7 +1,7 @@
 import "./style/App.css";
 import { BrowserRouter } from "react-router-dom";
-import LandingPage from "./LandingPage";
 import ErrorBoundary from "./utils/ErrorBoundary";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
